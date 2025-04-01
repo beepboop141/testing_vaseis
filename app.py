@@ -237,13 +237,11 @@ class Visitor(db.Model):
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Float, nullable=False)
-    original_price = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(50), nullable=False)  # general, vip, backstage
     date_of_payment = db.Column(db.DateTime, nullable=False)
     payment_type = db.Column(db.String(50), nullable=False)
     barcode = db.Column(db.String(13), unique=True)  # EAN13
-    status = db.Column(db.String(20), default='valid')  # 'used' or 'unused'
-    # status opitons: 'valid', 'used', 'cancelled', 'pending_resale', 'resold'
+    status = db.Column(db.String(20), default='valid')  # status options: 'valid', 'used'
     
     resale_status = db.Column(db.String(20), default='not_for_resale') # not for resale, 
     #available, sold
