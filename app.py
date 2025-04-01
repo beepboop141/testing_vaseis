@@ -237,7 +237,7 @@ class Visitor(db.Model):
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Float, nullable=False)
-    category = db.Column(db.String(50), nullable=False)  # general, vip
+    category = db.Column(db.String(50), nullable=False)  # general, vip, backstage
     date_of_payment = db.Column(db.DateTime, nullable=False)
     payment_type = db.Column(db.String(50), nullable=False)
     barcode = db.Column(db.String(13), unique=True)  # EAN13
@@ -247,7 +247,6 @@ class Ticket(db.Model):
     #available, sold
 
     # Foreign Keys
-    event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=False)
     performance_id = db.Column(db.Integer, db.ForeignKey('performance.id'))
     owner_id = db.Column(db.Integer, db.ForeignKey('visitor.id'), nullable=False)
     festival_id = db.Column(db.Integer, db.ForeignKey('festival.id'), nullable=False)
