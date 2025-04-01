@@ -237,7 +237,7 @@ class Visitor(db.Model):
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Float, nullable=False)
-    category = db.Column(db.String(50), nullable=False)  # general, vip, backstage
+    category = db.Column(db.String(50), nullable=False)  # general, vip
     date_of_payment = db.Column(db.DateTime, nullable=False)
     payment_type = db.Column(db.String(50), nullable=False)
     barcode = db.Column(db.String(13), unique=True)  # EAN13
