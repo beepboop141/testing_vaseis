@@ -249,13 +249,10 @@ class Ticket(db.Model):
     # Foreign Keys
     performance_id = db.Column(db.Integer, db.ForeignKey('performance.id'))
     owner_id = db.Column(db.Integer, db.ForeignKey('visitor.id'), nullable=False)
-    festival_id = db.Column(db.Integer, db.ForeignKey('festival.id'), nullable=False)
     
     # Relationships
     event = db.relationship('Event', back_populates='tickets')
-    performance = db.relationship('Performance', back_populates='tickets')
     owner = db.relationship('Visitor', back_populates='tickets', foreign_keys=[owner_id])
-    festival = db.relationship('Festival', back_populates='tickets')
     resale_offers = db.relationship('ResaleQueue', back_populates='ticket') # one to many 
 
     def __repr__(self):
